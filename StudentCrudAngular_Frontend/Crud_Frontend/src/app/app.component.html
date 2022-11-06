@@ -1,0 +1,59 @@
+<div class="container">
+
+    <div class="card mt-5  p-3 mb-2 bg-info text-white" style="align-items: center;">
+        <h1 class="text-primary">Student Dashboard</h1>
+    </div>
+    <div class="card mt-5 " style="padding: 20px;">
+        <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+            <div class="form-group">
+                <label for="exampleInputEmail1"><b>Name</b></label>
+                <input type="text" #name (ngModel)="name" class="form-control form-control-lg" name="name" id="name" placeholder="Enter name" required>
+            </div><br>
+            <div class="form-group">
+                <label for="exampleInputEmail1"><b>Address</b></label>
+                <input type="text" #address (ngModel)="address" class="form-control form-control-lg" name="address" id="address" placeholder="Enter address" required>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="exampleInputEmail1"><b>Percentage</b></label>
+                <input type="number" #percentage (ngModel)="percentage" class="form-control form-control-lg" name="percentage" id="percentage" placeholder="Enter percentage" required>
+            </div>
+            <br><br>
+            <button type="submit" value="Register" class="btn btn-primary w-100">Submit</button>
+        </form>
+    </div>
+    <br>
+    <br>
+
+    <div class="card mt-5  p-3 mb-2 bg-info text-white" style="align-items: center;">
+        <h1 class="text-primary">Students Details</h1>
+    </div>
+    <div class="p-3 mb-2 bg-light text-dark">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">RollNumber</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Percentage</th>
+
+                    <th scope="col">Update</th>
+
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let student of studentDetails">
+                    <th scope="row">{{student.id}}</th>
+                    <th scope="row">{{student.name}}</th>
+                    <th scope="row">{{student.address}}</th>
+                    <th scope="row">{{student.percentage}}</th>
+                    <th scope="row"><button type="button" class="btn btn-outline-info">Update</button></th>
+                    <th scope="row"><button type="button" class="btn btn-outline-danger" (click)="deleteStudent(student)">Delete</button></th>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
